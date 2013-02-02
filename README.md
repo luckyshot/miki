@@ -12,9 +12,9 @@ Miki is a mini-wiki system in just one file.
 How to use it
 ----------------------
 
-At the bottom left of every page you will find an *Edit* button, click on it and modify the text.
+At the right of every page you will find an *Edit* button, click on it and modify the text, then Save.
 
-Use [Markdown](http://daringfireball.net/projects/markdown/syntax) to format your text and put words inside `[  ]` to create internal links.
+Use [Markdown](http://daringfireball.net/projects/markdown/syntax) to format your text and put words inside `[  ]` to create internal links, then click on them and a new page will be created.
 
 
 Installation
