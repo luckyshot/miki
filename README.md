@@ -3,7 +3,7 @@ miki
 
 Miki is a mini-wiki system in just one file.
 
- - One single PHP file (and an htaccess)
+ - One single PHP file
  - No database needed (files are stored as .txt files in the server)
  - Auto-installed automatically
  - Full Markdown language support
