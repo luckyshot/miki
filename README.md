@@ -58,7 +58,7 @@ Changelog
 License
 ---------------------
 
-Miki is authored by [Xavi Esteve](https://xaviesteve.com/) and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike license](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+Miki is authored by [Xavier Esteve](https://xaviesteve.com/) and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike license](http://creativecommons.org/licenses/by-nc-sa/3.0/).
 
 
 Disclaimer
