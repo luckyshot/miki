@@ -28,9 +28,18 @@ Installation
 4. Create a link in your browser to point to _URL + FOLDERNAME_. Example: `http://example.com/miki/myfoldername`
 5. Make sure that you have writing permissions in the Miki folder, every new Miki page is stored as a `.txt` file
 
+Custom CSS styling
+----------------------
+
+Create a link `[customcss]` so you get a page like http://example.com/miki/customcss/ and write the CSS code in it.
 
 Changelog
 ---------------------
+
+### 3.1.24 (10 April 2017)
+
+- Auto-save drafts
+- Dark mode at night
 
 ### 3.1.20 (13 February 2017)
 
