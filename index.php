@@ -37,17 +37,17 @@ class Miki {
 	protected $config = [
 		'app_name' => 'Miki',
 		'app_url' => 'http://example.com/miki', // no trailing slash
-		'app_version' => '3.1.20',
+		'app_version' => '3.1.24',
 		'default_page' => 'welcome',
 		'extension' => 'txt',
 		'maxlength' => 100000, // file max characters, 1000 = 1KB
 		'cache_time' => 86400, // 3600 = 1 hour, 86400 = 1 day, 604800 = 1 week, 18144000 = 1 month
-		'auth_duration' => 31536000, // 3600 = 1 hour, 86400 = 1 day, 604800 = 1 week, 18144000 = 1 month
+		'auth_duration' => 31536000, // 3600 = 1 hour, 86400 = 1 day, 604800 = 1 week, 18144000 = 1 month, 31536000 = 1 year
 	];
 
 
 	/****************************************************************************************
-	 * You are done, no more config needed :)
+	 * You are done, no more editing needed :)
 	 */
 
 
@@ -98,8 +98,11 @@ body {font-family:Georgia, serif;margin: 0 auto 20px;max-width:40em;padding: 0 1
 
 /* Dark theme */
 html.dark {background: #000;color: #b7b7b7}
-	.dark h2 {color: #b7b7b7}
+	.dark h2 {color: #b7b7b7;border-bottom-color: #313131;}
+	.dark a {color: #129aec}
+	.dark em {background: transparent;}
 	.dark .allfiles a {background:transparent}
+	.dark textarea {background:#111;color:#fbfbfb}
 
 /* Responsive */
 @media screen and (max-width:520px) { /* Mobile */
@@ -120,7 +123,7 @@ var converter = new Showdown.converter();
 
 document.getElementById("box-content").innerHTML = converter.makeHtml( document.getElementById("text").value )
 	.replace(/\[(.*?)\]/gi, function(str, p1, offset, s){
-		return \'<a href="[url]/\'+p1.replace(" ","-")+\'" title="p1">\'+p1+\'</a>\';
+		return \'<a href="[url]/\'+p1.replace(" ","-").toLowerCase()+\'" title="p1">\'+p1+\'</a>\';
 	});
 
 /* Edit button */
@@ -140,7 +143,7 @@ window.addEventListener("keydown", function(e) {
 			if ( document.getElementById("edit").className.indexOf("hide") === -1 ){
 				document.getElementById("edit").click();
 			}else{
-				document.getElementById("form").submit();
+				document.getElementById("save").click();
 			}
 		break;
 		}
@@ -150,6 +153,18 @@ window.addEventListener("keydown", function(e) {
 /* Dark theme */
 var d = new Date(), h = d.getHours();
 if ( h > 21 || h < 7 ){ document.getElementById("html").className = "dark"; }
+
+/* Auto-save drafts */
+if ( localStorage[ "miki_page_" + miki.filename ] ){
+	document.getElementById("edit").click();
+	document.getElementById("text").value = localStorage[ "miki_page_" + miki.filename ];
+}
+document.getElementById("text").addEventListener("keydown", function(e) {
+	localStorage[ "miki_page_" + miki.filename ] = document.getElementById("text").value;
+});
+document.getElementById("save").addEventListener("click", function(){
+	localStorage.clear( "miki_page_" + miki.filename );
+});
 
 ';
 
@@ -171,13 +186,13 @@ if ( h > 21 || h < 7 ){ document.getElementById("html").className = "dark"; }
 			<h1 class="title">[filename]</h1>
 			<form id="form" action="[url]/?p=[filename]" method="post" class="hide">
 				<textarea id="text" name="text">[contentraw]</textarea>
-				<button type="submit">Save</button>
+				<button id="save" type="submit">Save</button>
 			</form>
 			<div id="box-content" class="box-content"></div>
 		</div>
 		<p id="edit" class="edit">Edit</p>
 		<ul class="allfiles">[allfiles]</ul>
-		<script>var miki = {"url":"[url]","version":"[version]"};</script>
+		<script>window.miki = {"url":"[url]","version":"[version]","filename":"[filename]"};</script>
 		<script type="text/javascript" src="[url]/?special=js&v=[version]"></script>
 	</body>
 </html>',
@@ -253,7 +268,7 @@ RewriteRule ^([a-zA-Z0-9\-]*)/?$ index.php?p=$1 [QSA,L]
 		}
 
 		if ( !@$_GET['p'] OR $_GET['p'] === '' OR $_GET['p'] === $_COOKIE['miki_auth_key'] ){
-			$_GET['p'] = $this->config['default_page'];
+			$this->gotofile( $this->config['default_page'] );
 		}
 
 

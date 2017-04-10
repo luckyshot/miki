@@ -7,7 +7,7 @@ Miki is a mini-wiki system in just one file.
  - No database needed (files are stored as .txt files in the server)
  - Auto-installed automatically
  - Full Markdown language support
- - Super fast and lightweight
+ - Super fast and lightweight (0.01MB including PHP code, Database, Responsive Stylesheet and Scripts)
 
 ![Miki mini-wiki system screenshot](http://xaviesteve.com/wp-content/uploads/2013/02/Screen-Shot-2013-02-02-at-10.45.37.png)
 
