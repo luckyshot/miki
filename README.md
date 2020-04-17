@@ -24,7 +24,7 @@ Installation
 
 1. Copy `index.php` to your web server
 2. Open `index.php` and customize details in `$config` variable
-3. Create a folder next to `index.php` with a **very very long name** (30 characters or more, [grab one from the password generator here](https://xaviesteve.com/pro/tools.php))
+3. Create a folder next to `index.php` with a **very very long name** (at least 32 characters, 64+ recommended, [grab one from the password generator here](https://xaviesteve.com/pro/tools.php))
 4. Make sure that you have writing permissions in the Miki folder, every new Miki page is stored as a `.txt` file
 5. Create a link in your browser to point to _ServerUrl + FolderName_. Example: `https://example.com/miki/MyVeryLongFolderName` and use that link to **Log in**
 
