@@ -9,7 +9,7 @@ Miki is a mini-wiki system in just one file.
  - Full Markdown language support
  - Super fast and lightweight (0.01MB including PHP code, Database, Responsive Stylesheet and Scripts)
 
-![Miki mini-wiki system screenshot](http://xaviesteve.com/wp-content/uploads/2013/02/Screen-Shot-2013-02-02-at-10.45.37.png)
+![Miki mini-wiki system screenshot](https://xaviesteve.com/wp-content/uploads/2013/02/Screen-Shot-2013-02-02-at-10.45.37.png)
 
 How to use it
 ----------------------
@@ -24,14 +24,14 @@ Installation
 
 1. Copy `index.php` to your web server
 2. Open `index.php` and customize details in `$config` variable
-3. Create a folder next to `index.php` with a very very long name (30 characters or more)
-4. Create a link in your browser to point to _URL + FOLDERNAME_. Example: `http://example.com/miki/myfoldername`
-5. Make sure that you have writing permissions in the Miki folder, every new Miki page is stored as a `.txt` file
+3. Create a folder next to `index.php` with a **very very long name** (30 characters or more, [grab one from the password generator here](https://xaviesteve.com/pro/tools.php))
+4. Make sure that you have writing permissions in the Miki folder, every new Miki page is stored as a `.txt` file
+5. Create a link in your browser to point to _ServerUrl + FolderName_. Example: `https://example.com/miki/MyVeryLongFolderName` and use that link to **Log in**
 
 Custom CSS styling
 ----------------------
 
-Create a link `[customcss]` so you get a page like http://example.com/miki/customcss/ and write the CSS code in it.
+Create a link `[customcss]` so you get a page like https://example.com/miki/customcss/ and write the CSS code in it.
 
 Changelog
 ---------------------
@@ -67,10 +67,12 @@ Changelog
 License
 ---------------------
 
-Miki is authored by [Xavier Esteve](https://xaviesteve.com/) and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike license](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+Miki is authored by [Xavier Esteve](https://xaviesteve.com/) and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike license](https://creativecommons.org/licenses/by-nc-sa/3.0/).
 
 
 Disclaimer
 ---------------------
 
-Please check the code by yourself before using it in a production environment.
+Anyone that knows or discovers the folder names will have read+write access to all files in it, so remember to use long names for the folders and only share them with those you want to have access. You can rename a folder to change the access link.
+
+Please check the code by yourself before using it in a production environment, while I consider it myself secure, I may be unaware of a vulnerability.
